@@ -1,0 +1,36 @@
+templates:
+  outline:
+    description: "生成课程大纲，返回严格 JSON"
+    prompt: |
+      你是企业培训讲师。为客户 {client_name} 设计一门面向 {audience}（{audience_level}）的课程，总时长 {course_duration_hrs} 小时，目标学习成果：{outcomes}.
+      请输出严格的 JSON，结构如下：
+      {
+        "modules": [
+          {"index": 1, "title": "...", "duration_mins": 30, "learning_objectives": ["..."], "brief_description": "..."},
+          ...
+        ],
+        "summary": "..."
+      }
+      注意：模块时长之和必须等于 {course_duration_hrs}*60 分钟。
+  slide_generator:
+    description: "把单个 module 变为 slides 数组"
+    prompt: |
+      将以下模块转换为幻灯片列表，返回 JSON：
+      {
+        "slides": [
+          {"title":"...", "bullet_points": ["..."], "speaker_notes":"...", "image_hint":"optional image prompt"}
+        ]
+      }
+      输入模块信息：
+      title: {module_title}
+      brief: {module_brief}
+      learning_objectives: {module_learning_objectives}
+      duration_mins: {module_duration_mins}
+  quiz_generator:
+    description: "为模块生成练习题"
+    prompt: |
+      为模块 {module_title} 生成 5 道练习题，形式混合（单选、判断、简答），返回 JSON 数组。
+  image_prompt:
+    description: "把 image_hint 转成 seedream/qwan 的完整 prompt"
+    prompt: |
+      将简洁的 image hint 转换为用于 seedream/qwan 的详细 prompt（中英文两版），包含场景、主体、构图、颜色风格与分辨率建议（1920x1080）。输入 hint: {image_hint}
