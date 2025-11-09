@@ -1,0 +1,1 @@
+{\n  "name": "ai-course-node-worker",\n  "version": "0.1.0",\n  "main": "src/worker.js",\n  "scripts": {\n    "start": "ts-node-dev --respawn src/worker.ts"\n  },\n  "dependencies": {\n    "axios": "^1.5.0",\n    "bullmq": "^2.7.2",\n    "ioredis": "^5.3.2",\n    "dotenv": "^16.0.0"\n  },\n  "devDependencies": {\n    "ts-node-dev": "^2.0.0",\n    "typescript": "^5.2.2"\n  }\n}

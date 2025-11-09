@@ -1,0 +1,1 @@
+fastapi\nuvicorn\npython-multipart\nrequests\npython-dotenv\npython-pptx\npydantic\nboto3

@@ -1,0 +1,1 @@
+FROM node:20-alpine\nWORKDIR /usr/src/worker\nCOPY package*.json ./\nRUN npm ci\nCOPY . .\nCMD ["npm", "run", "start"]
